@@ -9,7 +9,7 @@
  * @head: Head of the linked list
  * @number: Value of the new node
  *
- * Return: Node created
+ * Return: Node created or null if node couldn't be created
  **/
 listint_t *insert_node(listint_t **head, int number)
 {
@@ -25,13 +25,7 @@ listint_t *insert_node(listint_t **head, int number)
 	new_node->n = number;
 	new_node->next = NULL;
 
-	if (!(*head))
-	{
-		*head = new_node;
-		return (new_node);
-	}
-
-	if ((*head)->n > number)
+	if (!(*head) || ((*head) && ((*head)->n > number)))
 	{
 		new_node->next = *head;
 		*head = new_node;
