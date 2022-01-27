@@ -2,9 +2,6 @@
 
 import sys
 
-from fastapi import status
-
-
 total_size = 0
 i = 0
 info_codes = {
