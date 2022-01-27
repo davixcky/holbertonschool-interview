@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size> 
+(if the format is not this one, the line must be skipped)
+"""
+
 
 import sys
 
