@@ -24,19 +24,23 @@ def print_data():
 
         print('{}: {}'.format(status_code, value))
 
-try:
-    while True:
-        current_line = sys.stdin.readline().strip()
-        tokens = current_line.split(' ')
-        current_size, status_code = tokens[-1], tokens[-2]
-        total_size += float(current_size)
-        info_codes[status_code] += 1
-        i += 1
+if __name__ == "__main__":
+    try:
+        while True:
+            current_line = sys.stdin.readline().strip()
+            tokens = current_line.split(' ')
+            current_size, status_code = tokens[-1], tokens[-2]
+            total_size += float(current_size)
+            info_codes[status_code] += 1
+            i += 1
 
-        if i == 10:
-            print_data()
-            i = 0
+            if i == 10:
+                print_data()
+                i = 0
 
-except KeyboardInterrupt:
+    except KeyboardInterrupt:
+        print_data()
+        sys.stdout.flush()
+        raise
+
     print_data()
-    sys.stdout.flush()
