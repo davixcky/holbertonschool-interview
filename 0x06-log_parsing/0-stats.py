@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size> 
+Input format:
+<IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
 (if the format is not this one, the line must be skipped)
 """
 
@@ -34,6 +35,10 @@ if __name__ == "__main__":
         while True:
             current_line = sys.stdin.readline().strip()
             tokens = current_line.split(' ')
+
+            if len(tokens) != 9:
+                pass
+
             current_size, status_code = tokens[-1], tokens[-2]
             total_size += float(current_size)
             info_codes[status_code] += 1
@@ -45,7 +50,6 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         print_data()
-        sys.stdout.flush()
         raise
 
     print_data()
