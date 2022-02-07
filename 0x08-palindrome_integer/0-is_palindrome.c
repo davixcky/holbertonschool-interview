@@ -9,19 +9,18 @@
  **/
 int is_palindrome(unsigned long n)
 {
-	unsigned long tmp, base;
+	unsigned long tmp, base, count, i;
 
 	tmp = n;
-	for (base = 1; tmp > 0; base *= 10, tmp /= 10)
+	for (base = 1, count = 0; tmp > 0; base *= 10, tmp /= 10, count++)
 	;
 
 	tmp = n;
-	while (base > 1)
+	for (i = 0, count /= 2; base > 1 && count > i; i++, tmp /= 10)
 	{
 		base /= 10;
 		if ((n / base) % 10 != tmp % 10)
 			return (0);
-		tmp /= 10;
 	}
 
 	return (1);
