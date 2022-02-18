@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Module for utf-8 utility""""
+""" Module for utf-8 utility"""
 
 
 def validUTF8(data):
